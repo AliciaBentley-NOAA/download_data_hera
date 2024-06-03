@@ -19,7 +19,7 @@ print("**************")
 
 iyyyy = 2024		; Define initialization date (yyyy mm dd hh)
 imm = 3
-idd = 1
+idd = 20
 ihh = 0
 
 timeUnits = "hours since 1800-01-01 00:00:00"
@@ -34,7 +34,7 @@ print(" ")
 print("bdate: "+ut_string(bdate,""))
 print(" ")
 
-do fhr_loop = 0,744,24       ; Download forecast files from F000 to F144 hours at 12-hour increments 
+do fhr_loop = 0,24,24       ; Download forecast files from F000 to F144 hours at 12-hour increments 
 
 cdate = bdate
 cdate = bdate + fhr_loop

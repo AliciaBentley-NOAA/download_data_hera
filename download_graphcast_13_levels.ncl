@@ -19,7 +19,7 @@ print("**************")
 
 iyyyy = 2024		; Define initialization date (yyyy mm dd hh)
 imm = 4
-idd = 10
+idd = 14
 ihh = 0
 
 timeUnits = "hours since 1800-01-01 00:00:00"
@@ -34,7 +34,7 @@ print(" ")
 print("bdate: "+ut_string(bdate,""))
 print(" ")
 
-do fhr_loop = 0,192,6       ; Download forecast files from F000 to F144 hours at 12-hour increments 
+do fhr_loop = 0,72,6       ; Download forecast files from F000 to F144 hours at 12-hour increments 
 
 cdate = bdate
 cdate = bdate + fhr_loop
@@ -59,20 +59,10 @@ cdate = bdate + fhr_loop
                  end if
 
 
-; This section downloads data before the switch to WCOSS2
-;print("filefhr: "+filefhr)
-;print("htar -xvf /NCEPPROD/hpssprod/runhistory/rh"+byyyy+"/"+byyyy+bmm+"/"+byyyy+bmm+bdd+"/com_gfs_prod_gfs."+byyyy+bmm+bdd+"_"+bhh+".gfs_pgrb2.tar ./gfs."+byyyy+bmm+bdd+"/"+bhh+"/atmos/gfs.t"+bhh+"z.pgrb2.0p25.f"+filefhr)
-;system("htar -xvf /NCEPPROD/hpssprod/runhistory/rh"+byyyy+"/"+byyyy+bmm+"/"+byyyy+bmm+bdd+"/com_gfs_prod_gfs."+byyyy+bmm+bdd+"_"+bhh+".gfs_pgrb2.tar ./gfs."+byyyy+bmm+bdd+"/"+bhh+"/atmos/gfs.t"+bhh+"z.pgrb2.0p25.f"+filefhr)
-
-; This section download GFS v16.2 forecasts
-;print("filefhr: "+filefhr)
-;print("htar -xvf /NCEPPROD/hpssprod/runhistory/rh"+byyyy+"/"+byyyy+bmm+"/"+byyyy+bmm+bdd+"/com_gfs_v16.2_gfs."+byyyy+bmm+bdd+"_"+bhh+".gfs_pgrb2.tar ./gfs."+byyyy+bmm+bdd+"/"+bhh+"/atmos/gfs.t"+bhh+"z.pgrb2.0p25.f"+filefhr)
-;system("htar -xvf /NCEPPROD/hpssprod/runhistory/rh"+byyyy+"/"+byyyy+bmm+"/"+byyyy+bmm+bdd+"/com_gfs_v16.2_gfs."+byyyy+bmm+bdd+"_"+bhh+".gfs_pgrb2.tar ./gfs."+byyyy+bmm+bdd+"/"+bhh+"/atmos/gfs.t"+bhh+"z.pgrb2.0p25.f"+filefhr)
-
-; This section downloads GFS v16.3 forecasts
+; This section downloads 13-level or 37-level GraphcastGFS forecasts
 print("filefhr: "+filefhr)
-print("htar -xvf /NCEPPROD/hpssprod/runhistory/rh"+byyyy+"/"+byyyy+bmm+"/"+byyyy+bmm+bdd+"/com_gfs_v16.3_gfs."+byyyy+bmm+bdd+"_"+bhh+".gfs_pgrb2.tar ./gfs."+byyyy+bmm+bdd+"/"+bhh+"/atmos/gfs.t"+bhh+"z.pgrb2.0p25.f"+filefhr)
-system("htar -xvf /NCEPPROD/hpssprod/runhistory/rh"+byyyy+"/"+byyyy+bmm+"/"+byyyy+bmm+bdd+"/com_gfs_v16.3_gfs."+byyyy+bmm+bdd+"_"+bhh+".gfs_pgrb2.tar ./gfs."+byyyy+bmm+bdd+"/"+bhh+"/atmos/gfs.t"+bhh+"z.pgrb2.0p25.f"+filefhr)
+print("wget https://noaa-nws-graphcastgfs-pds.s3.amazonaws.com/graphcastgfs."+byyyy+bmm+bdd+"/"+bhh+"/forecasts_13_levels/graphcastgfs.t"+bhh+"z.pgrb2.0p25.f"+filefhr)
+system("wget https://noaa-nws-graphcastgfs-pds.s3.amazonaws.com/graphcastgfs."+byyyy+bmm+bdd+"/"+bhh+"/forecasts_13_levels/graphcastgfs.t"+bhh+"z.pgrb2.0p25.f"+filefhr)
 
 
 end do     ; end fhr_loop
