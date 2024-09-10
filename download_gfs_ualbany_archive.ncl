@@ -18,8 +18,8 @@ print("**************")
 ;*******************************************************
 
 iyyyy = 2024		; Define initialization date (yyyy mm dd hh)
-imm = 6
-idd = 28
+imm = 7
+idd = 24
 ihh = 0
 
 timeUnits = "hours since 1800-01-01 00:00:00"
@@ -34,7 +34,7 @@ print(" ")
 print("bdate: "+ut_string(bdate,""))
 print(" ")
 
-do fhr_loop = 0,120,12       ; Download forecast files from F000 to F144 hours at 12-hour increments 
+do fhr_loop = 0,42,6       ; Download forecast files from F000 to F144 hours at 12-hour increments 
 
 cdate = bdate
 cdate = bdate + fhr_loop
@@ -61,8 +61,8 @@ print("chh: "+chh)
 
 
 ; This section should be used to download GFS v16.3 forecasts after 2022112900
-print("htar -xvf /NCEPPROD/hpssprod/runhistory/rh"+cyyyy+"/"+cyyyy+cmm+"/"+cyyyy+cmm+cdd+"/com_gfs_v16.3_gfs."+cyyyy+cmm+cdd+"_"+chh+".gfs_pgrb2.tar ./gfs."+cyyyy+cmm+cdd+"/"+chh+"/atmos/gfs.t"+chh+"z.pgrb2.0p25.anl")
-system("htar -xvf /NCEPPROD/hpssprod/runhistory/rh"+cyyyy+"/"+cyyyy+cmm+"/"+cyyyy+cmm+cdd+"/com_gfs_v16.3_gfs."+cyyyy+cmm+cdd+"_"+chh+".gfs_pgrb2.tar ./gfs."+cyyyy+cmm+cdd+"/"+chh+"/atmos/gfs.t"+chh+"z.pgrb2.0p25.anl")
+print("htar -xvf /NCEPPROD/hpssprod/runhistory/rh"+cyyyy+"/"+cyyyy+cmm+"/"+cyyyy+cmm+cdd+"/com_gfs_v16.3_gfs."+cyyyy+cmm+cdd+"_"+chh+".gfs_pgrb2.tar ./gfs."+cyyyy+cmm+cdd+"/"+chh+"/atmos/gfs.t"+chh+"z.pgrb2.0p50.anl")
+system("htar -xvf /NCEPPROD/hpssprod/runhistory/rh"+cyyyy+"/"+cyyyy+cmm+"/"+cyyyy+cmm+cdd+"/com_gfs_v16.3_gfs."+cyyyy+cmm+cdd+"_"+chh+".gfs_pgrb2.tar ./gfs."+cyyyy+cmm+cdd+"/"+chh+"/atmos/gfs.t"+chh+"z.pgrb2.0p50.anl")
 
 ;-------------------------------------------------------------------
 

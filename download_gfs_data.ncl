@@ -18,9 +18,9 @@ print("**************")
 ;*******************************************************
 
 iyyyy = 2024		; Define initialization date (yyyy mm dd hh)
-imm = 4
-idd = 10
-ihh = 0
+imm = 6
+idd = 29
+ihh = 12
 
 timeUnits = "hours since 1800-01-01 00:00:00"
 bdate = cd_inv_calendar(iyyyy,imm,idd,ihh,00,00,timeUnits,0)
@@ -34,7 +34,7 @@ print(" ")
 print("bdate: "+ut_string(bdate,""))
 print(" ")
 
-do fhr_loop = 0,192,6       ; Download forecast files from F000 to F144 hours at 12-hour increments 
+do fhr_loop = 0,120,12       ; Download forecast files from F000 to F144 hours at 12-hour increments 
 
 cdate = bdate
 cdate = bdate + fhr_loop
